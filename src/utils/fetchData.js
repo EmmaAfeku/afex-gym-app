@@ -1,5 +1,6 @@
 export const exerciseOptions = {
    method: "GET",
+   params: { limit: "100" },
    headers: {
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
       "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
@@ -7,13 +8,9 @@ export const exerciseOptions = {
 };
 
 const fetchData = async (url, options) => {
-   try {
-      const response = await fetch(url, options);
-      const data = await response.json();
-      return data;
-   } catch (err) {
-      console.log(err);
-   }
+   const response = await fetch(url, options);
+   const data = await response.json();
+   return data;
 };
 
 export default fetchData;
